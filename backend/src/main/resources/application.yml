@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/library_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+logging:
+  level:
+    root: INFO
+    com.library: DEBUG
+
+security:
+  jwt:
+    secret: ${SECURITY_JWT_SECRET:12345678901234567890123456789012345678901234567890}
+    expiration-ms: ${SECURITY_JWT_EXPIRATION_MS:86400000}
+
+ai:
+  service:
+    base-url: ${AI_SERVICE_BASE_URL:http://localhost:8000}
+
+app:
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost}
+  seed:
+    admin-email: ${APP_SEED_ADMIN_EMAIL:admin@library.com}
+    admin-password: ${APP_SEED_ADMIN_PASSWORD:Admin@123}
+    admin-name: ${APP_SEED_ADMIN_NAME:System Admin}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
