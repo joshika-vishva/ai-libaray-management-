@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/librarydb
+    username: library
+    password: library
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+app:
+  jwt:
+    secret: c3VwZXJzZWNyZXRrZXl0aGF0aXNsZW5ndGh5ZW5vdWdodG9zaWdu
+    expiration-ms: 86400000
+
+logging:
+  level:
+    root: INFO
+    com.example.library: DEBUG
